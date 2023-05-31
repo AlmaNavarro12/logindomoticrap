@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -31,6 +31,12 @@ class _FirstPageState extends State<FirstPage> {
 
             //Logotipo
             Image.asset('assets/logo_sinfondo.png', width: 200, height: 200),
+
+            const SizedBox(height: 5),
+            //Campo de usuario
+            Text(AppLocalizations.of(context)!.helloWord,
+                textAlign: MediaQuery.of(context).size.width > 600 ? TextAlign.left : TextAlign.center,
+                style: const TextStyle(color: Colors.black, fontSize: 14)),
 
             const SizedBox(height: 15),
             

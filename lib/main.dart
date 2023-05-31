@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,6 +12,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'DomoticRAP',
+      supportedLocales: const [
+      Locale('en'), // Idioma inglés
+      Locale('es'), // Idioma español
+    ],
+    localizationsDelegates: const [
+      AppLocalizations.delegate, // Agrega AppLocalizations.delegate
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+    ],
       home: Scaffold(
           body: Stack(
               alignment: Alignment.center,
