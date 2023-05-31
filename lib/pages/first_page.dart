@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
 
@@ -8,6 +9,7 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+
   @override
   Widget build(BuildContext context) {
     bool obs = true;
@@ -18,8 +20,11 @@ class _FirstPageState extends State<FirstPage> {
                 colors: [Colors.teal.shade100, Colors.purple.shade100],
                 begin: Alignment.centerRight,
                 end: Alignment.centerLeft)),
-        padding: EdgeInsets.all(20.0),
-        child: Column(
+        padding: const EdgeInsets.all(20.0),
+
+        //Se agrga un scroll para mover los elementos en caso de no caber en pantalla
+        child: SingleChildScrollView(
+         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 10),
@@ -28,11 +33,11 @@ class _FirstPageState extends State<FirstPage> {
             Image.asset('assets/logo_sinfondo.png', width: 200, height: 200),
 
             const SizedBox(height: 15),
-
+            
             //Campo de usuario
-            const Text('Nombre de usuario',
-                textAlign: TextAlign.left,
-                style: TextStyle(color: Colors.black, fontSize: 14)),
+            Text('Nombre de usuario',
+                textAlign: MediaQuery.of(context).size.width > 600 ? TextAlign.left : TextAlign.center,
+                style: const TextStyle(color: Colors.black, fontSize: 14)),
 
             const SizedBox(height: 5),
 
@@ -47,9 +52,9 @@ class _FirstPageState extends State<FirstPage> {
             const SizedBox(height: 10),
 
             //Campo de contraseña
-            const Text('Contraseña',
-                textAlign: TextAlign.left,
-                style: TextStyle(color: Colors.black, fontSize: 14)),
+            Text('Contraseña',
+                textAlign: MediaQuery.of(context).size.width > 600 ? TextAlign.left : TextAlign.center,
+                style: const TextStyle(color: Colors.black, fontSize: 14)),
             const SizedBox(height: 5),
             TextFormField(
                 obscureText: obs,
@@ -72,7 +77,7 @@ class _FirstPageState extends State<FirstPage> {
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromARGB(255, 66, 23, 71))),
+                            const Color.fromARGB(255, 66, 23, 71))),
                     child: const Text('INICIAR SESIÓN',
                         style: TextStyle(
                             color: Colors.white,
@@ -91,7 +96,7 @@ class _FirstPageState extends State<FirstPage> {
                 child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(255, 216, 11, 11),
+                            color: const Color.fromARGB(255, 216, 11, 11),
                             width: 2.0)),
                     child: OutlinedButton(
                         onPressed: () {},
@@ -110,7 +115,7 @@ class _FirstPageState extends State<FirstPage> {
                 child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(255, 31, 18, 104),
+                            color: const Color.fromARGB(255, 31, 18, 104),
                             width: 2.0)),
                     child: OutlinedButton(
                         onPressed: () {},
@@ -122,6 +127,7 @@ class _FirstPageState extends State<FirstPage> {
                         )))),
           ],
         ),
+        )
       ),
     );
   }
